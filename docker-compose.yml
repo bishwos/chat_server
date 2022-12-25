@@ -17,7 +17,7 @@ services:
       - ./data/postgres/data:/var/lib/postgresql/data
       - ./postgres-scripts:/docker-entrypoint-initdb.d
     env_file:
-      - postgres-variables.env
+      - .env
   fpush:
     hostname: fpush
     image: "hcr.io/bishwos/push_p2:master"
@@ -29,4 +29,4 @@ services:
     volumes:
       - ./mariadb-scripts:/docker-entrypoint-initdb.d
     env_file:
-      - postgres-variables.env
+      - .env
