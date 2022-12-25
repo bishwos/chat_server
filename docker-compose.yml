@@ -1,11 +1,21 @@
 services:
-  ejabberd:
-    hostname: ejabberd
-    image: ./ejabberd
-    ports:
-      - "5443:5443"
-      - "5347:5347"
+  postgres:
+    hostname: postgres
+    image: postgres:14.6-alpine
     volumes:
-      - ./ejabberd/conf:/home/ejabberd/conf
-      - ./data/ejabberd/upload:/home/ejabberd/upload
-      - ./data/ejabberd/logs:/home/ejabberd/logs
+      - ./data/postgres/data:/var/lib/postgresql/data
+      - ./postgres-scripts:/docker-entrypoint-initdb.d
+    env_file:
+      - .env
+  fpush:
+    hostname: fpush
+    image: ghcr.io/bishwos/push_p2:master
+    volumes:
+      - ./p2-conf/:/root/conf
+  mysql:
+    hostname: mysql
+    image: mariadb:10.9.4
+    volumes:
+      - ./mariadb-scripts:/docker-entrypoint-initdb.d
+    env_file:
+      - .env
