@@ -12,7 +12,7 @@ services:
       - ./data/ejabberd/logs:/home/ejabberd/logs
   postgres:
     hostname: postgres
-    image: "postgres:14.6-alpine"
+    image: postgres:14.6-alpine
     volumes:
       - ./data/postgres/data:/var/lib/postgresql/data
       - ./postgres-scripts:/docker-entrypoint-initdb.d
@@ -20,12 +20,12 @@ services:
       - .env
   fpush:
     hostname: fpush
-    image: "ghcr.io/bishwos/push_p2:master"
+    image: ghcr.io/bishwos/push_p2:master
     volumes:
       - ./p2-conf/:/root/conf
   mysql:
     hostname: mysql
-    image: "mariadb:10.9.4"
+    image: mariadb:10.9.4
     volumes:
       - ./mariadb-scripts:/docker-entrypoint-initdb.d
     env_file:
