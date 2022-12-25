@@ -1,4 +1,14 @@
 services:
+  ejabberd:
+    hostname: ejabberd
+    build: ./ejabberd
+    ports:
+      - "5443:5443"
+      - "5347:5347"
+    volumes:
+      - ./ejabberd/conf:/home/ejabberd/conf
+      - ./data/ejabberd/upload:/home/ejabberd/upload
+      - ./data/ejabberd/logs:/home/ejabberd/logs
   postgres:
     hostname: postgres
     image: postgres:14.6-alpine
@@ -17,5 +27,6 @@ services:
     image: mariadb:10.9.4
     volumes:
       - ./mariadb-scripts:/docker-entrypoint-initdb.d
+      - ./data/mariadb/data:/var/lib/mysql
     env_file:
       - .env
