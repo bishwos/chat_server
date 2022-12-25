@@ -21,7 +21,7 @@ services:
     hostname: fpush
     image: ghcr.io/bishwos/push_p2:master
     volumes:
-      - ./p2-conf:/root/conf
+      - ./p2-conf:/root/config
   mysql:
     hostname: mariadb
     image: mariadb:10.9.4
