@@ -23,7 +23,7 @@ services:
     volumes:
       - ./p2-conf/:/root/conf
   mysql:
-    hostname: mysql
+    hostname: mariadb
     image: mariadb:10.9.4
     volumes:
       - ./mariadb-scripts:/docker-entrypoint-initdb.d
