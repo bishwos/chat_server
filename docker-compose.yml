@@ -20,7 +20,7 @@ services:
       - .env
   fpush:
     hostname: fpush
-    image: "hcr.io/bishwos/push_p2:master"
+    image: "ghcr.io/bishwos/push_p2:master"
     volumes:
       - ./p2-conf/:/root/conf
   mysql:
