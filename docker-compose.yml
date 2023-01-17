@@ -30,3 +30,8 @@ services:
       - ./data/mariadb/data:/var/lib/mysql
     env_file:
       - .env
+  nginx:
+    hostname: nginx
+    image: nginx:1.23.3-alpine-slim
+    volumes:
+      - ./nginx/:/etc/nginx/conf.d
