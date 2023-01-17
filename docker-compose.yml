@@ -33,5 +33,7 @@ services:
   nginx:
     hostname: nginx
     image: nginx:1.23.3-alpine-slim
+    ports:
+      - "443:443"
     volumes:
       - ./nginx/:/etc/nginx/conf.d
