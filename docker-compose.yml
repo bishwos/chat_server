@@ -38,3 +38,9 @@ services:
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/ssl:/etc/ssl/
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        subnet: 10.103.0.1/16
